@@ -1,10 +1,8 @@
 <?php
 require_once __DIR__ . '/CreditCards.php';
-class User
+require_once __DIR__ . '/Person.php';
+class User extends Person
 {
-   public $name;
-   public $lastname;
-   public $age;
    public $subscribed;
    public $discount;
    public $credit_card;
@@ -12,27 +10,13 @@ class User
 
    public function __construct($name, $lastname, $age, $subscribed, $credit_card, $cart)
    {
-      $this->setName($name);
-      $this->setLastname($lastname);
-      $this->setAge($age);
+      parent::__construct($name, $lastname, $age);
       $this->setIsSubscribed($subscribed);
       $this->setDiscount();
       $this->setCreditCard($credit_card);
       $this->setCart($cart);
    }
 
-   public function setName($name)
-   {
-      $this->name = $name;
-   }
-   public function setLastname($lastname)
-   {
-      $this->lastname = $lastname;
-   }
-   public function setAge($age)
-   {
-      $this->age = $age;
-   }
    public function setIsSubscribed($subscribed)
    {
       $this->subscribed = $subscribed;
