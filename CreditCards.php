@@ -12,16 +12,30 @@ class CreditCards
       $this->setBalance($balance);
    }
 
-   public function setNumber($number)
+   private function setNumber($number)
    {
       $this->number = $number;
    }
-   public function setValidity($validity)
+   public function getNumber()
+   {
+      return $this->number;
+   }
+
+   private function setValidity($validity)
    {
       $this->validity = $validity;
    }
-   public function setBalance($balance)
+   public function getValidity()
+   {
+      return $this->validity;
+   }
+
+   private function setBalance($balance)
    {
       $this->balance = $balance;
+   }
+   public function getBalance()
+   {
+      return $this->balance;
    }
 }

@@ -27,9 +27,14 @@ class User extends Person
    {
       $this->subscribed = $subscribed;
    }
+   // Controllo se iscritto allora applico sconto
    public function setDiscount()
    {
       $this->discount = $this->subscribed ? 20 : 0;
+   }
+   public function getDiscount()
+   {
+      return $this->discount;
    }
    // Controllo se la carta di credito sia un istanza della classe CreditCards
    public function setCreditCard($credit_card)
@@ -51,12 +56,12 @@ class User extends Person
    public function setMoneyLeft($credit_card, $cart)
    {
       if (!$credit_card->validity) return 'Carta di Credito scaduta';
-      $actual_money = $credit_card->balance;
+      $actual_money = $credit_card->getBalance();
       foreach ($cart as $product) {
          if ($product instanceof Products) {
-            if ($this->discount) {
-               $actual_money -= $product->price * 0.8;
-            } else $actual_money -= $product->price;
+            if ($this->getDiscount()) {
+               $actual_money -= $product->getPrice() * 0.8;
+            } else $actual_money -= $product->getPrice();
          }
       }
       return $actual_money;

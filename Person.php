@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class Person
 {
@@ -13,16 +13,30 @@ class Person
       $this->setAge($age);
    }
 
-   public function setName($name)
+   private function setName($name)
    {
       $this->name = $name;
    }
-   public function setLastname($lastname)
+   public function getName()
+   {
+      return $this->name;
+   }
+
+   private function setLastname($lastname)
    {
       $this->lastname = $lastname;
    }
-   public function setAge($age)
+   public function getLastname()
+   {
+      return $this->lastname;
+   }
+
+   private function setAge($age)
    {
       $this->age = $age;
+   }
+   public function getAge()
+   {
+      return $this->age;
    }
 }

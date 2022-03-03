@@ -15,16 +15,30 @@ class Games extends Products
       $this->setIsEdible($edible);
    }
 
-   public function setMaterial($material)
+   private function setMaterial($material)
    {
       $this->material = $material;
    }
-   public function setSize($size)
+   public function getMaterial()
+   {
+      return $this->material;
+   }
+
+   private function setSize($size)
    {
       $this->size = $size;
    }
-   public function setIsEdible($edible)
+   public function getSize()
+   {
+      return $this->size;
+   }
+
+   private function setIsEdible($edible)
    {
       $this->edible = $edible;
+   }
+   public function getIsEdible()
+   {
+      return $this->edible;
    }
 }

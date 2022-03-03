@@ -13,12 +13,21 @@ class Foods extends Products
       $this->setIsCanned($canned);
    }
 
-   public function setExpireDate($expire_date)
+   private function setExpireDate($expire_date)
    {
       $this->expire_date = $expire_date;
    }
-   public function setIsCanned($canned)
+   public function getExpireDate()
+   {
+      return $this->expire_date;
+   }
+
+   private function setIsCanned($canned)
    {
       $this->canned = $canned;
+   }
+   public function getIsCanned()
+   {
+      return $this->canned;
    }
 }
