@@ -8,8 +8,9 @@ class User
    public $subscribed;
    public $discount;
    public $credit_card;
+   public $cart;
 
-   public function __construct($name, $lastname, $age, $subscribed, $credit_card)
+   public function __construct($name, $lastname, $age, $subscribed, $credit_card, $cart)
    {
       $this->setName($name);
       $this->setLastname($lastname);
@@ -17,6 +18,7 @@ class User
       $this->setIsSubscribed($subscribed);
       $this->setDiscount();
       $this->setCreditCard($credit_card);
+      $this->setCart($cart);
    }
 
    public function setName($name)
@@ -43,5 +45,14 @@ class User
    {
       if (!$credit_card instanceof CreditCards) return false;
       $this->credit_card = $credit_card;
+   }
+   public function setCart($cart)
+   {
+      foreach ($cart as $prodkey => $product) {
+         if (!$product instanceof Products) {
+            unset($cart[$prodkey]);
+         }
+      }
+      $this->cart = $cart;
    }
 }
