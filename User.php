@@ -52,10 +52,11 @@ class User extends Person
    {
       if (!$credit_card->validity) return 'Carta di Credito scaduta';
       $actual_money = $credit_card->balance;
-      var_dump($actual_money);
       foreach ($cart as $product) {
          if ($product instanceof Products) {
-            $actual_money -= $product->price;
+            if ($this->discount) {
+               $actual_money -= $product->price * 0.8;
+            } else $actual_money -= $product->price;
          }
       }
       return $actual_money;
